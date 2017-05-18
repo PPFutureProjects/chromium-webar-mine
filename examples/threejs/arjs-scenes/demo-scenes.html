@@ -1,0 +1,110 @@
+<!--
+/*
+* Copyright 2017 Google Inc. All Rights Reserved.
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/main.css">
+	
+	<!-- Error handling -->
+	<script>
+	window.addEventListener('error', function(event) {
+		var errorMessage = event.message;
+		var url = event.filename;
+		var lineNumber = event.lineno;
+		var columnNumber = event.colno;
+		alert("ERROR: " + errorMessage + " at " + url + " : " + lineNumber + " : " + columnNumber);
+	});
+	</script>
+	
+	<title>WebAR (Tango) Chair ThreeJS Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<style>
+	body {
+		font-family: Monospace;
+		background-color: #000000;
+		margin: 0px;
+		overflow: hidden;
+	}
+	
+	#info {
+		color: #fff;
+		position: absolute;
+		top: 10px;
+		width: 100%;
+		text-align: center;
+		z-index: 100;
+		display:block;
+		
+	}
+	
+	a { color: skyblue }
+	</style>
+</head>
+<body>
+	<div id="loader-wrapper">
+		<div id="loader"></div>
+		<div class="loader-section section-left"></div>
+		<div class="loader-section section-right"></div>
+	</div>
+	
+	<div id="info">
+		<a href="http://threejs.org" target="_blank">three.js</a> -
+		WebAR (Tango) - ar.js usual demos <a href="https://twitter.com/jerome_etienne" target="_blank">@jerome_etienne</a>
+		<br>
+		Scenes: 
+			<a href='#torus' onclick='javascript: location.reload()'>torus</a>
+			- <a href='#glassTorus' onclick='javascript: location.reload()'>glassTorus</a>
+			- <a href='#holePortal' onclick='javascript: location.reload()'>holePortal</a>
+			- <a href='#holeTorus' onclick='javascript: location.reload()'>holeTorus</a>
+			- <a href='#holePool' onclick='javascript: location.reload()'>holePool</a> 
+			- <a href='#minecraft' onclick='javascript: location.reload()'>minecraft</a> 
+			- <a href='#shaddowTorusKnot' onclick='javascript: location.reload()'>shaddowTorusKnot</a> 
+	</div>
+	
+	<script src="../../libs/third_party/three.js"></script>
+	<script src="../../libs/third_party/Detector.js"></script>
+	<script src="../../libs/third_party/stats.min.js"></script>
+	<script src="../../libs/third_party/VRControls.js"></script>
+	<script src="../../libs/third_party/dat.gui.min.js"></script>
+	<script src="../../libs/third_party/ColladaLoader.js"></script>
+	
+	<script src="../../libs/THREE.WebAR.js"></script>
+	
+	<!-- include demo scenes -->
+	<script src='vendor/ar.js/three.js/examples/demo-scenes/threex-demoscenes.js'></script>
+	<script src='vendor/ar.js/three.js/examples/refraction/threex.refractionmaterial.js'></script>
+	<script src='vendor/ar.js/three.js/examples/hole-in-the-wall/threex.holeinthewall.js'></script>
+	<script src='vendor/ar.js/three.js/examples/vendor/three.js/examples/js/loaders/GLTFLoader.js'></script>
+	<script>THREEx.DemoContent.baseURL = 'vendor/ar.js/three.js/'</script>
+	<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.minecraft.js'></script>
+	<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.minecraftcontrols.js'></script>
+	<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.animation.js'></script>
+	<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.animations.js'></script>
+	<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.minecraftcharheadanim.js'></script>
+	<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.minecraftcharbodyanim.js'></script>
+	<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.minecraftnickname.js'></script>
+	<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.minecraftbubble.js'></script>
+	<script>THREEx.MinecraftChar.baseUrl = 'vendor/ar.js/aframe/examples/vendor/threex.minecraft/'</script>
+
+
+	<script src='js/main.js'></script>
+	
+</body>
+</html>
