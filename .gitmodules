@@ -1,0 +1,3 @@
+[submodule "examples/threejs/arjs-scenes/vendor/ar.js"]
+	path = examples/threejs/arjs-scenes/vendor/ar.js
+	url = git@github.com:jeromeetienne/AR.js.git
