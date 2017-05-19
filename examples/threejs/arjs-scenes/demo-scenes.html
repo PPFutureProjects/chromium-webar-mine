@@ -46,7 +46,7 @@
 	#info {
 		color: #fff;
 		position: absolute;
-		top: 10px;
+		bottom: 10px;
 		width: 100%;
 		text-align: center;
 		z-index: 100;
@@ -65,17 +65,18 @@
 	</div>
 	
 	<div id="info">
+		Scenes: 
+			<a href='javascript:void(0)' onclick='javascript: switchDemoScene("torus")'>torus</a>
+			- <a href='javascript:void(0)' onclick='javascript: switchDemoScene("glassTorus")'>glassTorus</a>
+			- <a href='javascript:void(0)' onclick='javascript: switchDemoScene("holePortal")'>holePortal</a>
+			- <a href='javascript:void(0)' onclick='javascript: switchDemoScene("holeTorus")'>holeTorus</a>
+			- <a href='javascript:void(0)' onclick='javascript: switchDemoScene("holePool")'>holePool</a> 
+			- <a href='javascript:void(0)' onclick='javascript: switchDemoScene("minecraft")'>minecraft</a> 
+			- <a href='javascript:void(0)' onclick='javascript: switchDemoScene("shaddowTorusKnot")'>shaddowTorusKnot</a> 
+		<br>
+		<br>
 		<a href="http://threejs.org" target="_blank">three.js</a> -
 		WebAR (Tango) - ar.js usual demos <a href="https://twitter.com/jerome_etienne" target="_blank">@jerome_etienne</a>
-		<br>
-		Scenes: 
-			<a href='#torus' onclick='javascript: location.reload()'>torus</a>
-			- <a href='#glassTorus' onclick='javascript: location.reload()'>glassTorus</a>
-			- <a href='#holePortal' onclick='javascript: location.reload()'>holePortal</a>
-			- <a href='#holeTorus' onclick='javascript: location.reload()'>holeTorus</a>
-			- <a href='#holePool' onclick='javascript: location.reload()'>holePool</a> 
-			- <a href='#minecraft' onclick='javascript: location.reload()'>minecraft</a> 
-			- <a href='#shaddowTorusKnot' onclick='javascript: location.reload()'>shaddowTorusKnot</a> 
 	</div>
 	
 	<script src="../../libs/third_party/three.js"></script>
@@ -87,22 +88,21 @@
 	
 	<script src="../../libs/THREE.WebAR.js"></script>
 	
-	<!-- include demo scenes -->
-	<script src='vendor/ar.js/three.js/examples/demo-scenes/threex-demoscenes.js'></script>
-	<script src='vendor/ar.js/three.js/examples/refraction/threex.refractionmaterial.js'></script>
-	<script src='vendor/ar.js/three.js/examples/hole-in-the-wall/threex.holeinthewall.js'></script>
-	<script src='vendor/ar.js/three.js/examples/vendor/three.js/examples/js/loaders/GLTFLoader.js'></script>
-	<script>THREEx.DemoContent.baseURL = 'vendor/ar.js/three.js/'</script>
-	<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.minecraft.js'></script>
-	<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.minecraftcontrols.js'></script>
-	<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.animation.js'></script>
-	<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.animations.js'></script>
-	<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.minecraftcharheadanim.js'></script>
-	<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.minecraftcharbodyanim.js'></script>
-	<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.minecraftnickname.js'></script>
-	<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.minecraftbubble.js'></script>
-	<script>THREEx.MinecraftChar.baseUrl = 'vendor/ar.js/aframe/examples/vendor/threex.minecraft/'</script>
 
+<!-- include demo scenes -->
+<script src='vendor/ar.js/three.js/examples/demo-scenes/threex-demoscenes.js'></script>
+<script src='vendor/ar.js/three.js/examples/refraction/threex.refractionmaterial.js'></script>
+<script src='vendor/ar.js/three.js/examples/hole-in-the-wall/threex.holeinthewall.js'></script>
+<script src='vendor/ar.js/three.js/examples/vendor/three.js/examples/js/loaders/GLTFLoader.js'></script>
+<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.minecraft.js'></script>
+<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.minecraftcontrols.js'></script>
+<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.animation.js'></script>
+<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.animations.js'></script>
+<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.minecraftcharheadanim.js'></script>
+<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.minecraftcharbodyanim.js'></script>
+<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.minecraftnickname.js'></script>
+<script src='vendor/ar.js/aframe/examples/vendor/threex.minecraft/threex.minecraftbubble.js'></script>
+<script>THREEx.ARjsDemoScenes.baseURL = 'vendor/ar.js/three.js/'</script>
 
 	<script src='js/main.js'></script>
 	

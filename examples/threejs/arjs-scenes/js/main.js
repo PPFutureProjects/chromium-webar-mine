@@ -45,32 +45,50 @@ if (navigator.getVRDisplays) {
 //////////////////////////////////////////////////////////////////////////////
 function startApplication(){
 
-	var demoContent = new THREEx.DemoContent()
+	// create demo scenes
+	var demoScenes = new THREEx.ARjsDemoScenes()
 	requestAnimationFrame(function animate(){
 		requestAnimationFrame(animate)
-		demoContent.update(1/60)
+		demoScenes.update(1/60)
 	});
-
+	
+	// create the markerScene based on sceneName
 	var sceneName = location.hash.substring(1) || 'torus'
-	
-	
+
 	var markerRoot = new THREE.Group()	
-	markerRoot.rotation.z = -Math.PI/2
-	
+	markerRoot.rotation.z = -Math.PI/2	
 	if(sceneName === 'minecraft'){
 		markerRoot.scale.set(1,1,1).multiplyScalar(1.5)
 	}else{
 		markerRoot.scale.set(1,1,1).multiplyScalar(0.7)		
 	}
-	
-	var markerScene = demoContent.createMarkerScene(sceneName)
-	markerRoot.add(markerScene)
+
+	var markerScene = demoScenes.createMarkerScene(sceneName)
+	markerRoot.add( markerScene )
+
+	// function to dynamically switch demoScenes
+	window.switchDemoScene = function(newSceneName){
+		// remove previous markerScene if suiltabled
+		var previousParent = markerScene.parent || smoothedRoot
+		if( demoScenes ){
+			markerScene.parent.remove( markerScene )
+			demoScenes.dispose()			
+		}
+		// create the new markerScene
+		markerScene = demoScenes.createMarkerScene(newSceneName)	
+		previousParent.add( markerScene )
+		// update the location.hash
+		location.hash = '#'+newSceneName
+	}
+
+
 
 // window.markerScene = markerScene
 // markerScene.add(new THREE.AxisHelper())
 
+// TODO why do i need this model
 	model = new THREE.Group()
-	// model.add(new THREE.AxisHelper())	
+	markerScene.add(new THREE.AxisHelper())
 	model.add(markerRoot);
 	model.visible = false
 
@@ -170,6 +188,9 @@ function init(vrDisplay) {
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	renderer.autoClear = false;
 	document.body.appendChild( renderer.domElement );
+
+// renderer.shadowMap.type = THREE.PCFSoftShadowMap
+renderer.shadowMap.enabled = true;
 	
 	// Create a way to measure performance
 	stats = new Stats();
