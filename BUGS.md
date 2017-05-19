@@ -1,0 +1,3 @@
+- 2 similars file THREE.WebAR
+- crash happening on picking
+- crash happening on phone orientation change - landspace/portrait
